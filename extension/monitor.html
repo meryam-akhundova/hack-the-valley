@@ -28,9 +28,17 @@
       <div id="state" class="state ok">Good posture</div>
     </section>
 
+    <section class="ai">
+      <div class="row">
+        <label class="check"><input type="checkbox" id="useModel"> Use AI model</label>
+        <span id="modelStatus" class="muted">Loading model...</span>
+      </div>
+      <div id="prediction" class="muted"></div>
+    </section>
+
     <section class="settings">
       <label>
-        <span>Slouch angle: <output id="thresholdOut"></output>°</span>
+        <span>Slouch angle (when not using AI): <output id="thresholdOut"></output>°</span>
         <input type="range" id="threshold" min="5" max="40" step="1">
       </label>
       <label>
@@ -42,7 +50,28 @@
         <input type="range" id="dim" min="20" max="90" step="5">
       </label>
     </section>
+
+    <details class="record">
+      <summary>Record training data</summary>
+      <p class="hint">Calibrate first. Hold each posture (or keep doing the movement) for 30–60 seconds per take.
+        Takes download as CSV files. Move them into <code>ml/data/</code>, then run <code>python ml/train.py</code>.</p>
+      <div class="row">
+        <input id="person" placeholder="Your name" size="12">
+        <select id="label">
+          <option value="upright">upright: sitting up straight</option>
+          <option value="slouch_forward">slouch_forward: hunched, head toward screen</option>
+          <option value="lean_back">lean_back: slumped back in the chair</option>
+          <option value="lean_side">lean_side: leaning on one elbow</option>
+          <option value="moving">moving: reaching, turning, typing, drinking</option>
+        </select>
+      </div>
+      <div class="row">
+        <button id="record" disabled>Record</button>
+        <span id="recStatus" class="muted"></span>
+      </div>
+    </details>
   </main>
+  <script src="ml.js"></script>
   <script src="monitor.js"></script>
 </body>
 </html>

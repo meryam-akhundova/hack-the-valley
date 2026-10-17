@@ -66,3 +66,13 @@ button:disabled { opacity: 0.4; cursor: default; }
 .state.bad { color: var(--bad); border: 1px solid var(--bad); }
 .settings label { display: block; margin-bottom: 14px; }
 .settings input { width: 100%; }
+.muted { color: var(--muted); }
+.ai { margin-bottom: 20px; }
+.check { display: flex; align-items: center; gap: 6px; }
+#prediction { font-variant-numeric: tabular-nums; min-height: 1.5em; }
+.record { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.record summary { cursor: pointer; font-weight: 600; margin-bottom: 12px; }
+.record input, .record select { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text); }
+.record select { flex: 1; min-width: 0; }
+button.stop { background: var(--bad); border-color: var(--bad); }
+code { font-size: 13px; }
