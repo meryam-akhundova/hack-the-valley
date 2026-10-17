@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Slouch Dimmer",
+  "version": "1.0",
+  "description": "Dims web pages when a Grove accelerometer on an Arduino detects you slouching.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Open Slouch Dimmer"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
